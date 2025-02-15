@@ -1,0 +1,43 @@
+<input type="text" id="taskInput" placeholder="Vazifani yozing..." onfocus="showSuggestions()" onblur="hideSuggestions()">
+<ul id="suggestions" style="display: none;"></ul>
+
+<script>
+    function showSuggestions() {
+        let suggestions = ["Kitob o‘qish", "Sport bilan shug‘ullanish", "Dasturlash o‘rganish", "Ish rejasini tuzish"];
+        let list = document.getElementById("suggestions");
+        list.innerHTML = "";
+        suggestions.forEach(item => {
+            let li = document.createElement("li");
+            li.textContent = item;
+            li.style.cursor = "pointer";
+            li.onclick = function() {
+                document.getElementById("taskInput").value = item;
+                hideSuggestions();
+            };
+            list.appendChild(li);
+        });
+        list.style.display = "block";
+    }
+
+    function hideSuggestions() {
+        setTimeout(() => document.getElementById("suggestions").style.display = "none", 200);
+    }
+</script>
+
+<style>
+    ul {
+        border: 1px solid #ccc;
+        width: 200px;
+        padding: 0;
+        list-style: none;
+        position: absolute;
+        background: white;
+    }
+    li {
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+    }
+    li:hover {
+        background: #f0f0f0;
+    }
+</style>

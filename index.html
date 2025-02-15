@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO DO App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="todo-app">
+    <h2>TO DO App</h2>
+    <div class="add-task">
+      <input type="text" list="suggestions" name="" id="Add" type="reset" title="JavaScript darslari to do list " color="red" required placeholder="Add New Task" />
+
+      <datalist id="suggestions">
+        <option value="Kitob o‘qish"></option>
+        <option value="Sport bilan shug‘ullanish"></option>
+        <option value="Dasturlash o‘rganish"></option>
+        <option value="Sayohat qilish"></option>
+    </datalist>
+
+      <button onclick="Task()"><i class="fa-solid fa-plus fa-lg"></i></button>
+    </div>
+    
+    <div id="tasks">
+      <h3>Tasks</h3>
+    </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
