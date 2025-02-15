@@ -1,43 +1,56 @@
-<input type="text" id="taskInput" placeholder="Vazifani yozing..." onfocus="showSuggestions()" onblur="hideSuggestions()">
-<ul id="suggestions" style="display: none;"></ul>
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Amaliyot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<script>
-    function showSuggestions() {
-        let suggestions = ["Kitob o‘qish", "Sport bilan shug‘ullanish", "Dasturlash o‘rganish", "Ish rejasini tuzish"];
-        let list = document.getElementById("suggestions");
-        list.innerHTML = "";
-        suggestions.forEach(item => {
-            let li = document.createElement("li");
-            li.textContent = item;
-            li.style.cursor = "pointer";
-            li.onclick = function() {
-                document.getElementById("taskInput").value = item;
-                hideSuggestions();
-            };
-            list.appendChild(li);
-        });
-        list.style.display = "block";
-    }
+    <h1>JavaScript Amaliy Topsiriqlar</h1>
 
-    function hideSuggestions() {
-        setTimeout(() => document.getElementById("suggestions").style.display = "none", 200);
-    }
-</script>
+    <!-- 1. Element yaratish -->
+    <section>
+        <h2>1️⃣ Element yaratish</h2>
+        <button id="addBox">Div Qo‘shish</button>
+        <div class="container"></div>
+    </section>
 
-<style>
-    ul {
-        border: 1px solid #ccc;
-        width: 200px;
-        padding: 0;
-        list-style: none;
-        position: absolute;
-        background: white;
-    }
-    li {
-        padding: 5px;
-        border-bottom: 1px solid #eee;
-    }
-    li:hover {
-        background: #f0f0f0;
-    }
-</style>
+    <!-- 2. Matnni real vaqtda chiqarish -->
+    <section>
+        <h2>2️⃣ Input matnini chiqarish</h2>
+        <input type="text" id="textInput" placeholder="Matn kiriting...">
+        <h1 id="outputText"></h1>
+    </section>
+
+    <!-- 3. Slayder -->
+    <section>
+        <h2>3️⃣ Rasm Slayder</h2>
+        <div class="slider">
+            <button id="prevBtn">⬅</button>
+            <img id="sliderImg" src="https://picsum.photos/200/300" alt="Rasm">
+            <button id="nextBtn">➡</button>
+        </div>
+    </section>
+
+    <!-- 4. Timer -->
+    <section>
+        <h2>4️⃣ Timer</h2>
+        <p id="timerDisplay">0s</p>
+        <button id="startTimer">Start</button>
+        <button id="stopTimer">Stop</button>
+        <button id="resetTimer">Reset</button>
+    </section>
+
+    <!-- 5. Todo List -->
+    <section>
+        <h2>5️⃣ Todo-list</h2>
+        <input type="text" id="todoInput" placeholder="Vazifa kiriting...">
+        <button id="addTodo">Qo‘shish</button>
+        <ul id="todoList"></ul>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

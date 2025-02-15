@@ -1,98 +1,48 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 100;
-    
-}
-body{
-    background-color:#E1E1E1 ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    flex-direction: column;
-    gap: 20px;
-    
-}
-.todo-app{
-    
-    width: 300px;
-    border: 3px solid #AACC9E;
-    border-radius: 5px;
-    background-color: #FFFFFF;
-    padding: 20px;
-}
-.add-task{
-    width: 260px;
-    background-color: #E2EFDE;
-    padding: 7px 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-input{
-    
-    all: unset;
-    background-color: transparent;
-
-
-}
-input:active{
-    background-color: transparent;
-}
-input:hover{
-    background-color: transparent;
-}
-input:focus{
-    background-color: transparent;
-}
-.add-task button{
-    background-color: #ABCCA1;
-    border: none;
-    border-radius: 3px;
-    width: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 0px;
-}
-.Task{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 260px;
-    background-color: #E2EFDE;
-    border: 2px solid #ACCCA3;
-    border-radius: 3px;
-    padding: 7px 10px;
-    margin-bottom: 10px;
-}
-h3{
+body {
+    font-family: Arial, sans-serif;
     text-align: center;
-    margin: 10px;
+    margin: 20px;
 }
-.icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+section {
+    border: 2px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
 }
-.icon button{
+button {
+    font-size: 1rem;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
     border: none;
+    border-radius: 5px;
 }
-p:nth-child(1){
-    color:#222825;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
 }
-p:nth-child(2){
-    color:#929D95 ;
+.new-box {
+    width: 80px;
+    height: 80px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
 }
-p:nth-child(3){
-    font-size: 14px;
-    color: #3E5354;
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
-.Tasks16{
-    display: none;
+.slider img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
 }

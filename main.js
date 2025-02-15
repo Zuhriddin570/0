@@ -1,53 +1,63 @@
-function Task() {
-  let Add = document.getElementById("Add").value
-  if (Add === "") {
-    alert("Iltimos mashg'ulot kiriting!");
-    return
-  }
+// 1. Element yaratish
+const container = document.querySelector(".container");
+document.getElementById("addBox").addEventListener("click", () => {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("new-box");
+    newDiv.style.backgroundColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    newDiv.textContent = container.children.length + 1;
+    container.appendChild(newDiv);
+});
 
-  let now = new Date();
+// 2. Matnni real vaqtda chiqarish
+document.getElementById("textInput").addEventListener("input", (e) => {
+    document.getElementById("outputText").textContent = e.target.value;
+});
 
-  let date = now.getDate().toString().padStart(2, "0") + "." + 
-             (now.getMonth() + 1).toString().padStart(2, "0") + "." + 
-             now.getFullYear();
+// 3. Slayder
+const images = ["https://picsum.photos/200/300", "https://picsum.photos/200/301", "https://picsum.photos/200/302"];
+let index = 0;
+document.getElementById("nextBtn").addEventListener("click", () => {
+    index = (index + 1) % images.length;
+    document.getElementById("sliderImg").src = images[index];
+});
+document.getElementById("prevBtn").addEventListener("click", () => {
+    index = (index - 1 + images.length) % images.length;
+    document.getElementById("sliderImg").src = images[index];
+});
 
-  let hours = now.getHours().toString().padStart(2, "0");
-  let minutes = now.getMinutes().toString().padStart(2, "0");
-  let seconds = now.getSeconds().toString().padStart(2, "0");
+// 4. Timer
+let timer = 0, interval;
+document.getElementById("startTimer").addEventListener("click", () => {
+    if (!interval) {
+        interval = setInterval(() => {
+            timer++;
+            document.getElementById("timerDisplay").textContent = `${timer}s`;
+        }, 1000);
+    }
+});
+document.getElementById("stopTimer").addEventListener("click", () => {
+    clearInterval(interval);
+    interval = null;
+});
+document.getElementById("resetTimer").addEventListener("click", () => {
+    clearInterval(interval);
+    interval = null;
+    timer = 0;
+    document.getElementById("timerDisplay").textContent = "0s";
+});
 
-  let time = `${hours}:${minutes}:${seconds}`;
- 
-
-  
-
-  let AppDiv = document.createElement("div");
-  AppDiv.className = "Task"
-
-  AppDiv.innerHTML = `
-      
-      <h4>study</h4>
-      <p>${date}  ${time}</p>
-      <span>${Add}</span>
-        <div class="icon">
-                <button onclick="editTask(this)">
-                <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button onclick="deleteTask(this)"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-      `;
-  document.getElementById("tasks").appendChild(AppDiv);
-  document.getElementById("Add").value = "";
-}
-
-function editTask(button) {
-  let AppDiv = button.parentElement.parentElement;
-  let Add = AppDiv.querySelector("span").innerText;
-  let newText = prompt("Edit Task:", Add);
-  if (newText !== null && newText.trim() !== "") {
-    AppDiv.querySelector("span").innerText = newText;
-  }
-}
-
-function deleteTask(button) {
-  button.parentElement.parentElement.remove();
-}
+// 5. Todo List
+document.getElementById("addTodo").addEventListener("click", () => {
+    const input = document.getElementById("todoInput");
+    if (input.value.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = input.value;
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "🗑";
+        delBtn.style.marginLeft = "10px";
+        delBtn.addEventListener("click", () => li.remove());
+        li.appendChild(delBtn);
+        document.getElementById("todoList").appendChild(li);
+        input.value = "";
+    }
+});
